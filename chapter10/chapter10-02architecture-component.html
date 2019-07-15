@@ -983,83 +983,81 @@
 <h2 id="praktikum">PRAKTIKUM</h2>
 <p>Hasil Akhir Dari Chapter 10 adalah membuat Aplikasi yang Mencatat Kalori Seseorang Setiap Hari. Pada starter code telah disediakan aplikasi yang dapat menghitung Body Mass Ratio (BMR) berdasarkan literatur <a href="https://hellosehat.com/hidup-sehat/nutrisi/cara-menghitung-bmr-kebutuhan-kalori/" target="_blank">HelloSehat</a>.
 Hasil Akhir Dari Aplikasi ini adalah :</p>
-<p><img src="images/FinalAppcalories.gif" alt=""></p>
+<p><img src="images/FinalCalories.gif" alt=""></p>
 <ul>
 <li><p><strong>1 Membuat Entity</strong></p>
 <ul>
 <li>Entity akan digenerate menjadi table.</li>
 <li><p>StarterCode sudah menyediakan kelas LogCaloriesEntity, lengkapi code menjadi seperti pada code berikut:</p>
-<p>```java
-@Entity(tableName = &quot;log_calories&quot;)
-public class LogCaloriesEntity {
-  @PrimaryKey(autoGenerate = true)
-  @NonNull
-  private int id;</p>
-<p>  @ColumnInfo(name = &quot;waktu_makan&quot; )
-  private String waktuMakan;</p>
-<p>  @ColumnInfo(name = &quot;makanan&quot; )
-  private String makanan;</p>
-<p>  @ColumnInfo(name = &quot;kalori_makanan&quot; )
-  private String kaloriMakanan;</p>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code>    @ColumnInfo(name = &quot;tanggal&quot;)
-    private String tanggal;
+<pre><code class="lang-java"><span class="hljs-meta">@Entity</span>(tableName = <span class="hljs-string">&quot;log_calories&quot;</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LogCaloriesEntity</span> </span>{
+  <span class="hljs-meta">@PrimaryKey</span>(autoGenerate = <span class="hljs-keyword">true</span>)
+  <span class="hljs-meta">@NonNull</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> id;
 
+  <span class="hljs-meta">@ColumnInfo</span>(name = <span class="hljs-string">&quot;waktu_makan&quot;</span> )
+  <span class="hljs-keyword">private</span> String waktuMakan;
 
-    public LogCaloriesEntity(String waktuMakan, String makanan, String kaloriMakanan,  String tanggal) {
-        this.waktuMakan = waktuMakan;
-        this.makanan = makanan;
-        this.kaloriMakanan = kaloriMakanan;
-        this.tanggal = tanggal;
-    }
+  <span class="hljs-meta">@ColumnInfo</span>(name = <span class="hljs-string">&quot;makanan&quot;</span> )
+  <span class="hljs-keyword">private</span> String makanan;
 
+  <span class="hljs-meta">@ColumnInfo</span>(name = <span class="hljs-string">&quot;kalori_makanan&quot;</span> )
+  <span class="hljs-keyword">private</span> String kaloriMakanan;
 
-    public int getId() {
-        return id;
-    }
+  <span class="hljs-meta">@ColumnInfo</span>(name = <span class="hljs-string">&quot;tanggal&quot;</span>)
+  <span class="hljs-keyword">private</span> String tanggal;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">LogCaloriesEntity</span><span class="hljs-params">(String waktuMakan, String makanan, String kaloriMakanan,  String tanggal)</span> </span>{
+      <span class="hljs-keyword">this</span>.waktuMakan = waktuMakan;
+      <span class="hljs-keyword">this</span>.makanan = makanan;
+      <span class="hljs-keyword">this</span>.kaloriMakanan = kaloriMakanan;
+      <span class="hljs-keyword">this</span>.tanggal = tanggal;
+  }
 
-    public String getWaktuMakan() {
-        return waktuMakan;
-    }
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getId</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">return</span> id;
+  }
 
-    public void setWaktuMakan(String waktuMakan) {
-        this.waktuMakan = waktuMakan;
-    }
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setId</span><span class="hljs-params">(<span class="hljs-keyword">int</span> id)</span> </span>{
+      <span class="hljs-keyword">this</span>.id = id;
+  }
 
-    public String getMakanan() {
-        return makanan;
-    }
+  <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getWaktuMakan</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">return</span> waktuMakan;
+  }
 
-    public void setMakanan(String makanan) {
-        this.makanan = makanan;
-    }
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setWaktuMakan</span><span class="hljs-params">(String waktuMakan)</span> </span>{
+      <span class="hljs-keyword">this</span>.waktuMakan = waktuMakan;
+  }
 
-    public String getKaloriMakanan() {
-        return kaloriMakanan;
-    }
+  <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getMakanan</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">return</span> makanan;
+  }
 
-    public void setKaloriMakanan(String kaloriMakanan) {
-        this.kaloriMakanan = kaloriMakanan;
-    }
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setMakanan</span><span class="hljs-params">(String makanan)</span> </span>{
+      <span class="hljs-keyword">this</span>.makanan = makanan;
+  }
 
+  <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getKaloriMakanan</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">return</span> kaloriMakanan;
+  }
 
-    public String getTanggal() {
-        return tanggal;
-    }
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setKaloriMakanan</span><span class="hljs-params">(String kaloriMakanan)</span> </span>{
+      <span class="hljs-keyword">this</span>.kaloriMakanan = kaloriMakanan;
+  }
 
-    public void setTanggal(String tanggal) {
-        this.tanggal = tanggal;
-    }
+  <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getTanggal</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">return</span> tanggal;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setTanggal</span><span class="hljs-params">(String tanggal)</span> </span>{
+      <span class="hljs-keyword">this</span>.tanggal = tanggal;
+  }
 }
-```
-</code></pre><ul>
+</code></pre>
+</li>
+</ul>
+</li>
 <li><p><strong>2 Membuat DAO</strong></p>
 <ul>
 <li>Di Data Access Object (DAO), kita akan menentukan query SQL dan menghubungkannya dengan pemanggilan metode. Compiler akan memeriksa SQL dan menghasilkan query dari anotasi untuk query umum, seperti @Insert. Secara default, semua query harus dijalankan pada thread yang terpisah. DAO harus berupa interface atau abstract class.</li>
@@ -1183,7 +1181,7 @@ public LiveData&lt;List&lt;LogCaloriesEntity&gt;&gt; GetAllCaloriesByDate(String
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1 - Architecture Component dan Room Database","level":"1.10.1","depth":2,"next":{"title":"2 - View Model","level":"1.10.2","depth":2,"path":"chapter10/chapter10-03MembuatViewModel.md","ref":"chapter10/chapter10-03MembuatViewModel.md","articles":[]},"previous":{"title":"Bab 10 Room Persistence Library, RecyclerView","level":"1.10","depth":1,"path":"chapter10/chapter10-01pendahuluan.md","ref":"chapter10/chapter10-01pendahuluan.md","articles":[{"title":"1 - Architecture Component dan Room Database","level":"1.10.1","depth":2,"path":"chapter10/chapter10-02architecture-component.md","ref":"chapter10/chapter10-02architecture-component.md","articles":[]},{"title":"2 - View Model","level":"1.10.2","depth":2,"path":"chapter10/chapter10-03MembuatViewModel.md","ref":"chapter10/chapter10-03MembuatViewModel.md","articles":[]},{"title":"3 - RecyclerView","level":"1.10.3","depth":2,"path":"chapter10/chapter10-04RecyclerView.md","ref":"chapter10/chapter10-04RecyclerView.md","articles":[]},{"title":"4 - Latihan","level":"1.10.4","depth":2,"path":"chapter10/chapter10-05Latihan.md","ref":"chapter10/chapter10-05Latihan.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"id","gitbook":"*"},"file":{"path":"chapter10/chapter10-02architecture-component.md","mtime":"2019-07-14T22:32:23.209Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-14T22:32:38.041Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1 - Architecture Component dan Room Database","level":"1.10.1","depth":2,"next":{"title":"2 - View Model","level":"1.10.2","depth":2,"path":"chapter10/chapter10-03MembuatViewModel.md","ref":"chapter10/chapter10-03MembuatViewModel.md","articles":[]},"previous":{"title":"Bab 10 Room Persistence Library, RecyclerView","level":"1.10","depth":1,"path":"chapter10/chapter10-01pendahuluan.md","ref":"chapter10/chapter10-01pendahuluan.md","articles":[{"title":"1 - Architecture Component dan Room Database","level":"1.10.1","depth":2,"path":"chapter10/chapter10-02architecture-component.md","ref":"chapter10/chapter10-02architecture-component.md","articles":[]},{"title":"2 - View Model","level":"1.10.2","depth":2,"path":"chapter10/chapter10-03MembuatViewModel.md","ref":"chapter10/chapter10-03MembuatViewModel.md","articles":[]},{"title":"3 - RecyclerView","level":"1.10.3","depth":2,"path":"chapter10/chapter10-04RecyclerView.md","ref":"chapter10/chapter10-04RecyclerView.md","articles":[]},{"title":"4 - Latihan","level":"1.10.4","depth":2,"path":"chapter10/chapter10-05Latihan.md","ref":"chapter10/chapter10-05Latihan.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"id","gitbook":"*"},"file":{"path":"chapter10/chapter10-02architecture-component.md","mtime":"2019-07-15T01:44:07.359Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-15T01:44:32.220Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
